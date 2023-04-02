@@ -22,6 +22,7 @@ const Calculator = () => {
           let result = "";
           try {
             // result = eval(input);
+            // eslint-disable-next-line no-new-func
             result = Function("return " + input)();
           } catch (err) {
             setOutput("Error");
