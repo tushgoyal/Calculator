@@ -50,9 +50,13 @@ const Calculator = () => {
       }
 
       case "Delete": {
-        // if it's the Delete sign, just clean last digit
-        const userInput = input.slice(0, -1);
-        setInput(userInput);
+        // if it's the Delete sign, just clean last digit of input and remove output if present
+        if (output) setOutput("");
+        else {
+          const userInput = input.slice(0, -1);
+          setInput(userInput);
+        }
+
         break;
       }
 
