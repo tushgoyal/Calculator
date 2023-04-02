@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import OutputScreen from "./outputScreen.js";
-import Button from "./button.js";
+import OutputScreen from "./OutputScreen";
+import Button from "./Button";
 
 const Calculator = () => {
   const [input, setInput] = useState("");
