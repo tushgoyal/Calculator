@@ -25,10 +25,14 @@ const Calculator = () => {
             // eslint-disable-next-line no-new-func
             result = Function("return " + input)();
           } catch (err) {
+            setInput("");
             setOutput("Error");
           }
           // if eval giving no result hence show error
-          if (!result) setOutput("Error");
+          if (!result) {
+            setOutput("Error");
+            setInput("");
+          }
           // else update answer in state.
           else {
             setOutput(result);
@@ -53,7 +57,9 @@ const Calculator = () => {
       }
 
       default: {
-        // for every other commmand, update the answer in the state
+        // for every new input, empty previous output
+        if (output) setOutput("");
+        // for every other commmand, update the input in the state
         setInput((prevInput) => prevInput + value);
         break;
       }

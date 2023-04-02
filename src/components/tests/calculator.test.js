@@ -1,29 +1,27 @@
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import Calculator from '../Calculator';
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import Calculator from "../Calculator";
 
-describe('Calculator component', () => {
-  test('renders output screen and buttons', async () => {
-  
+describe("Calculator component", () => {
+  test("renders output screen and buttons", async () => {
     const calculatorKeys = [
-      ['AC', 'Delete', '%', '/'],
-      ['7', '8', '9', '*'],
-      ['4', '5', '6', '-'],
-      ['1', '2', '3', '+'],
-      ['0', '.', '='],
+      ["AC", "Delete", "%", "/"],
+      ["7", "8", "9", "*"],
+      ["4", "5", "6", "-"],
+      ["1", "2", "3", "+"],
+      ["0", ".", "="],
     ];
 
     render(<Calculator />);
 
     // Output screen
-    const outputScreen = screen.getByTestId('screen');
+    const outputScreen = screen.getByTestId("screen");
     expect(outputScreen).toBeInTheDocument();
 
     // Calculator buttons
     for (const row of calculatorKeys) {
       for (const digit of row) {
-        // expect(screen.getByRole('input')).toHaveValue(digit)
-        const button = screen.getAllByTestId('btn-input');
+        const button = screen.getAllByTestId("btn-input");
         expect(button[0]).toBeInTheDocument();
         userEvent.click(button[0]);
       }
