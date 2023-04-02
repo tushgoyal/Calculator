@@ -1,6 +1,12 @@
 import React from "react";
-import Calculator from "./components/calculator";
+import './components/styles/calculator.css';
+import Calculator from "./components/Calculator";
 
-const App = () => <Calculator />;
+const App = () => (
+  <div className="container">
+     <div className="calculator-title">Lets Calculate</div>
+    <Calculator />
+  </div>
+);
 
 export default App;
